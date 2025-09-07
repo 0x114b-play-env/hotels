@@ -1,12 +1,15 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
-import db from "./src/db.js";
+const db = await import("./src/db.js");
 
 const app = express();
 
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 
-app.listen(8000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server is running");
 });
 

@@ -1,11 +1,6 @@
 import mongoose from "mongoose";
 
-const mongoURL = "mongodb://127.0.0.1:27017/hotels";
-
-mongoose.connect(mongoURL, {
-  //   useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGOURL_CLUSTER);
 
 const db = mongoose.connection;
 
